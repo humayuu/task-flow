@@ -18,4 +18,5 @@ Route::middleware([
 });
 
 Route::resource('todo', TodoController::class)->middleware('auth');
+Route::get('all/todo', [TodoController::class, 'AllTodo']);
 Route::post('todo/status/{id}', [TodoController::class, 'TaskStatus'])->name('task.status');

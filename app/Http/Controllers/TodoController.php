@@ -15,8 +15,16 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $tasks = Todo::where('user_id', Auth::id())->paginate(5);
+        $tasks = Todo::where('user_id', Auth::id())->orderBy('id', 'DESC')->paginate(5);
         return view('todo.index', compact('tasks'));
+    }
+
+    public function AllTodo()
+    {
+        $tasks = Todo::all();
+        return response()->json([
+            'task' => $tasks,
+        ]);
     }
 
 
