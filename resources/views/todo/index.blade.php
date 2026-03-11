@@ -88,7 +88,7 @@
 
                             <div class="col-md-3">
                                 <select name="priority" class="form-select @error('priority') is-invalid @enderror">
-                                    <option disabled selected>Priority</option>
+                                    <option disabled selected>Select Priority</option>
                                     <option value="low">Low</option>
                                     <option value="medium">Medium</option>
                                     <option value="high">High</option>
@@ -119,19 +119,21 @@
                     <div class="row g-2 mb-3">
 
                         <div class="col-md-4">
-                            <select class="form-select" id="filterStatus">
-                                <option value="">Select Status</option>
-                                <option value="Pending">Pending</option>
+                            <select class="form-select" id="filterStatus" onchange="FilterByStatus(this.value)">
+                                <option value="" disabled selected>Select Status</option>
+                                <option value="all">All Tasks</option>
+                                <option value="pending">Pending</option>
                                 <option value="completed">Completed</option>
                             </select>
                         </div>
 
                         <div class="col-md-4">
-                            <select class="form-select" id="filterPriority">
-                                <option value="">Select Priority</option>
-                                <option>Low</option>
-                                <option>Medium</option>
-                                <option>High</option>
+                            <select class="form-select" id="filterPriority" onchange="FilterByPriority(this.value)">
+                                <option value="" disabled selected>Select Priority</option>
+                                <option value="all">All Priorities</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
                             </select>
                         </div>
 
@@ -226,6 +228,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 
